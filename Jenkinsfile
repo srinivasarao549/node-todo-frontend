@@ -1,14 +1,17 @@
-nodejs {
-    
+pipeline { 
+  agent any 
 	
+  env.AWS_ECR_LOGIN=true
+  def newApp
+  def registry = 'itssrini777/testjoinsave'
+  def registryCredential = 'dockerhub'
 
-    env.AWS_ECR_LOGIN=true
-    def newApp
-    def registry = 'itssrini777/testjoinsave'
-    def registryCredential = 'dockerhub'
-	
-	
-	stage('Git') {
+  tools {
+    nodejs 'node'
+  }
+
+  stages {    
+    stage('Git') {
 		git 'https://github.com/srinivasarao549/node-todo-frontend.git'
 	}
 	stage('Build') {
@@ -33,5 +36,6 @@ nodejs {
         sh "docker rmi $registry:$BUILD_NUMBER"
         sh "docker rmi $registry:latest"
     }
-    
+
+  }
 }
