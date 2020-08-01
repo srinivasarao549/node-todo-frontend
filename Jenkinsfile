@@ -1,4 +1,4 @@
-node {
+nodejs {
     
 	
 
@@ -6,6 +6,7 @@ node {
     def newApp
     def registry = 'itssrini777/testjoinsave'
     def registryCredential = 'dockerhub'
+	
 	
 	stage('Git') {
 		git 'https://github.com/srinivasarao549/node-todo-frontend.git'
