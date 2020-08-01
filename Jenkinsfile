@@ -4,11 +4,11 @@ node {
 
     env.AWS_ECR_LOGIN=true
     def newApp
-    def registry = 'gustavoapolinario/microservices-node-todo-frontend'
+    def registry = 'itssrini777/testjoinsave'
     def registryCredential = 'dockerhub'
 	
 	stage('Git') {
-		git 'https://github.com/gustavoapolinario/node-todo-frontend'
+		git 'https://github.com/srinivasarao549/node-todo-frontend.git'
 	}
 	stage('Build') {
 		sh 'npm install'
@@ -25,7 +25,7 @@ node {
 	}
 	stage('Registring image') {
         docker.withRegistry( 'https://' + registry, registryCredential ) {
-    		newApp.push 'latest2'
+    		newApp.push 'latest'
         }
 	}
     stage('Removing image') {
