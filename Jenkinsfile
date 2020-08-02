@@ -6,12 +6,6 @@ pipeline {
     }
     agent any
     stages {
-        stage('Cloning our Git') {
-            steps {
-                sh "docker -v"
-                sh "git clone https://github.com/srinivasarao549/node-todo-frontend.git"
-            }
-        }
         stage('Building our image') {
             steps{
                 script {
