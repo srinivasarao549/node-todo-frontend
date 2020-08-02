@@ -4,11 +4,11 @@ pipeline {
         registryCredential = 'dockerhub'
         dockerImage = ''
     }
+    
+    agent any
     tools {
-        nodejs 'nodejs'
         docker 'docker'
     }
-    agent any
     stages {
         stage('Building our image') {
             steps{
