@@ -1,14 +1,14 @@
 pipeline {
     environment {
-        registry = "YourDockerhubAccount/YourRepository"
-        registryCredential = 'dockerhub_id'
+        registry = "itssrini777/testjoinsave"
+        registryCredential = 'dockerhub'
         dockerImage = ''
     }
     agent any
     stages {
         stage('Cloning our Git') {
             steps {
-                git 'https://github.com/YourGithubAccount/YourGithubRepository.git'
+                git 'https://github.com/srinivasarao549/node-todo-frontend.git'
             }
         }
         stage('Building our image') {
