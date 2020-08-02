@@ -8,7 +8,8 @@ pipeline {
     stages {
         stage('Cloning our Git') {
             steps {
-                git 'https://github.com/srinivasarao549/node-todo-frontend.git'
+                sh `docker -v`
+                sh `git clone https://github.com/srinivasarao549/node-todo-frontend.git`
             }
         }
         stage('Building our image') {
